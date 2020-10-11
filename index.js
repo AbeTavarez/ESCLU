@@ -20,6 +20,16 @@ const fullUrl = (path = '') => {
   return url + path.replace(/^\/*/, '');
 };
 
+//* Response Handler
+const handleResponse = (err, res, body) => {
+  if (program.json) {
+    console.log(JSON.stringify(err || body));
+  } else {
+    if (err) throw err;
+    console.log(body);
+  }
+};
+
 program
   .version(pkg.version)
   .description(pkg.description)
@@ -32,13 +42,13 @@ program
 
   //Logs path
   .command('url [path]')
-  .description('generates the URL for the options and path (default is /)')
+  .description('generates the URL for the options and path (default is /).')
   .action((path = '/') => console.log(fullUrl(path)));
 
 program
-  // Requests
+  // GET Requests
   .command('get [path]')
-  .description('perform an HTTP GET request for path (default is /)')
+  .description('perform an HTTP GET request for path (default is /).')
   .action((path = '/') => {
     // options object
     const options = {
@@ -53,6 +63,20 @@ program
         console.log(body);
       }
     });
+  });
+
+program
+  // PUT Request Create Index
+  .command('create-index')
+  .description('Create a new index.')
+  .action(() => {
+    if (!program.index) {
+      const msg = 'No index specified! Use --index <name>';
+      if (!program.json) throw Error(msg);
+      console.log(JSON.stringify({ error: msg }));
+      return;
+    }
+    request.put(fullUrl(), handleResponse);
   });
 
 program.parse(process.argv);
