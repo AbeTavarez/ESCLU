@@ -5,6 +5,20 @@ const request = require('request');
 const program = require('commander');
 const pkg = require('./package.json');
 
+//* URL
+const fullUrl = (path = '') => {
+  let url = `http://${program.host}:${program.port}/`;
+
+  if (program.index) {
+    url += program.index + '/';
+    if (program.type) {
+      url += program.type + '/';
+    }
+  }
+  // removes leading forward slashes /
+  return url + path.replace(/^\/*/, '');
+};
+
 program
   .version(pkg.version)
   .description(pkg.description)
