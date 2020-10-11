@@ -27,7 +27,11 @@ program
   .option('-p, --port <number>', 'port number [9200]', '9200')
   .option('-j , --json', 'format outputas JSON')
   .option('-i, --index <name>', 'which index to use')
-  .option('-t, --type <type>', 'default type for bulk operations');
+  .option('-t, --type <type>', 'default type for bulk operations')
+
+  .command('url [path]')
+  .description('generates the URL for the options and path (default is /)')
+  .action((path = '/') => console.log(fullUrl(path)));
 
 program.parse(process.argv);
 
