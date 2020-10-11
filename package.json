@@ -9,6 +9,7 @@
   "author": "Abraham Tavarez",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.20.0",
     "commander": "^2.9.0",
     "request": "^2.79.0"
   }
