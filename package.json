@@ -1,0 +1,15 @@
+{
+  "name": "esclu",
+  "version": "1.0.0",
+  "description": "Elasticsearch command line utility program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abraham Tavarez",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "request": "^2.79.0"
+  }
+}
