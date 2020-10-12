@@ -79,6 +79,19 @@ program
     request.put(fullUrl(), handleResponse);
   });
 
+program
+  // List command with li alias
+  .command('list-indices')
+  .alias('li')
+  .description('get a list of indices in this cluster')
+  .action(() => {
+    // determinate the path // _all for --json flag //
+    const path = program.json ? '_all' : '_cat/indices?v';
+    // inline option onject
+    request({ url: fullUrl(path), json: program.json }, handleResponse);
+  });
+
+//* Parse arguments
 program.parse(process.argv);
 
 if (!program.args.filter((arg) => typeof arg === 'object').length) {
