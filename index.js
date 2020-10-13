@@ -118,6 +118,29 @@ program
     });
   });
 
+program
+  //* Sets a Query command
+  .command('query [queries...]') // takes any num of args
+  .alias('q')
+  .description('perform a query')
+  .action((queries = []) => {
+    // builds query string
+    const options = {
+      url: fullUrl('_search'),
+      json: program.json,
+      qs: {},
+    };
+    //if -q flag then concat with spaces
+    if (queries && queries.length) {
+      options.qs.q = queries.join(' ');
+    }
+    //if -f flag then convert _source param for query str
+    if (program.filter) {
+      options.qs._source = program.filter;
+    }
+    request(options, handleResponse);
+  });
+
 //* Parse arguments
 program.parse(process.argv);
 
