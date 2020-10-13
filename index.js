@@ -119,6 +119,10 @@ program
   });
 
 program
+  //* -f flag (filter option)
+  .option('-f, --filter <filter>', 'source filter for query results');
+
+program
   //* Sets a Query command
   .command('query [queries...]') // takes any num of args
   .alias('q')
