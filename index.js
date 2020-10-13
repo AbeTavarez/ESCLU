@@ -60,7 +60,7 @@ program
 //* CRUD Commands *******************************/
 
 program
-  //* GET Request Query Index
+  //* get: GET Request Query Index
   .command('get [path]')
   .description('perform an HTTP GET request for path (default is /).')
   .action((path = '/') => {
@@ -80,7 +80,7 @@ program
   });
 
 program
-  //* PUT Request Create Index
+  //* create-index: PUT Request Create Index
   .command('create-index')
   .description('Create a new index.')
   .action(() => {
@@ -94,7 +94,7 @@ program
   });
 
 program
-  //* POST Request Upload docs in bulk
+  //* bulk: POST Request Upload docs in bulk
   .command('bulk <file>')
   .description('read and perform bulk options from the specified file')
   .action((file) => {
@@ -123,7 +123,35 @@ program
   });
 
 program
-  //* DELETE Request Delete Index
+  //* put: PUT Command. Inserts one or updates one doc
+  .command('put <file>')
+  .description(
+    'read and perform single dingle document from the specified file'
+  )
+  .action((file) => {
+    // options object
+    const options = {
+      url: fullUrl(file),
+      json: program.json,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    request.post(options, (err, body) => {
+      if (program.json) {
+        console.log(JSON.stringify(err || body));
+      } else {
+        if (err) throw err;
+        console.log(body);
+      }
+    });
+    const stream = fs.createReadStream(file);
+    stream.pipe(req);
+    req.pipe(process.stdout);
+  });
+
+program
+  //* delete-index: DELETE Request delete Index
   .command('delete-index [path]')
   .description('perform an HTTP DELETE request for path (default is /)')
   .action((path) => {
@@ -143,11 +171,11 @@ program
 
 //** Query Filters ***********************************************/
 program
-  //* -f flag (filter option)
+  //* -f: flag (filter option)
   .option('-f, --filter <filter>', 'source filter for query results');
 
 program
-  //* Sets a Query command
+  //* query: Sets a Query command
   .command('query [queries...]') // takes any num of args
   .alias('q')
   .description('perform a query')
