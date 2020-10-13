@@ -49,7 +49,7 @@ program
   //* List command with li alias
   .command('list-indices')
   .alias('li')
-  .description('get a list of indices in this cluster')
+  .description('get a list of indices in current cluster')
   .action(() => {
     // determinate the path // _all for --json flag // li-j
     const path = program.json ? '_all' : '_cat/indices?v';
@@ -82,7 +82,7 @@ program
 program
   //* create-index: PUT Request Create Index
   .command('create-index')
-  .description('Create a new index.')
+  .description('perform an HTTP PUT to Create a new Index.')
   .action(() => {
     if (!program.index) {
       const msg = 'No index specified! Use --index <name>';
@@ -96,7 +96,7 @@ program
 program
   //* bulk: POST Request Upload docs in bulk
   .command('bulk <file>')
-  .description('read and perform bulk options from the specified file')
+  .description('read and perform bulk options from the specified file.')
   .action((file) => {
     fs.stat(file, (err, stats) => {
       if (err) {
@@ -126,7 +126,7 @@ program
   //* put: PUT Command. Inserts one or updates one doc
   .command('put <file>')
   .description(
-    'read and perform single dingle document from the specified file'
+    'read and perform options for single document from the specified file.'
   )
   .action((file) => {
     // options object
@@ -153,7 +153,7 @@ program
 program
   //* delete-index: DELETE Request delete Index
   .command('delete-index [path]')
-  .description('perform an HTTP DELETE request for path (default is /)')
+  .description('perform an HTTP DELETE request for path.')
   .action((path) => {
     const options = {
       url: fullUrl(path),
