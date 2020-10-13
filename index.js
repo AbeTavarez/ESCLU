@@ -122,6 +122,25 @@ program
     });
   });
 
+program
+  //* DELETE Request Delete Index
+  .command('delete-index [path]')
+  .description('perform an HTTP DELETE request for path (default is /)')
+  .action((path) => {
+    const options = {
+      url: fullUrl(path),
+      json: program.json,
+    };
+    request.delete(options, (err, body) => {
+      if (program.json) {
+        console.log(JSON.stringify(err || body));
+      } else {
+        if (err) throw err;
+        console.log(body);
+      }
+    });
+  });
+
 //** Query Filters ***********************************************/
 program
   //* -f flag (filter option)
