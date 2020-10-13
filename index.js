@@ -30,6 +30,7 @@ const handleResponse = (err, res, body) => {
 };
 
 program
+  //* Program Settings
   .version(pkg.version)
   .description(pkg.description)
   .usage('[options] <command> [...]')
@@ -39,13 +40,27 @@ program
   .option('-i, --index <name>', 'which index to use')
   .option('-t, --type <type>', 'default type for bulk operations')
 
-  //Logs path
+  //* Logs path
   .command('url [path]')
   .description('generates the URL for the options and path (default is /).')
   .action((path = '/') => console.log(fullUrl(path)));
 
 program
-  // GET Requests
+  //* List command with li alias
+  .command('list-indices')
+  .alias('li')
+  .description('get a list of indices in this cluster')
+  .action(() => {
+    // determinate the path // _all for --json flag // li-j
+    const path = program.json ? '_all' : '_cat/indices?v';
+    // inline option onject
+    request({ url: fullUrl(path), json: program.json }, handleResponse);
+  });
+
+//* CRUD Commands *******************************/
+
+program
+  //* GET Request Query Index
   .command('get [path]')
   .description('perform an HTTP GET request for path (default is /).')
   .action((path = '/') => {
@@ -65,7 +80,7 @@ program
   });
 
 program
-  // PUT Request Create Index
+  //* PUT Request Create Index
   .command('create-index')
   .description('Create a new index.')
   .action(() => {
@@ -79,18 +94,7 @@ program
   });
 
 program
-  // List command with li alias
-  .command('list-indices')
-  .alias('li')
-  .description('get a list of indices in this cluster')
-  .action(() => {
-    // determinate the path // _all for --json flag // li-j
-    const path = program.json ? '_all' : '_cat/indices?v';
-    // inline option onject
-    request({ url: fullUrl(path), json: program.json }, handleResponse);
-  });
-
-program
+  //* POST Request Upload docs in bulk
   .command('bulk <file>')
   .description('read and perform bulk options from the specified file')
   .action((file) => {
@@ -118,6 +122,7 @@ program
     });
   });
 
+//** Query Filters ***********************************************/
 program
   //* -f flag (filter option)
   .option('-f, --filter <filter>', 'source filter for query results');
