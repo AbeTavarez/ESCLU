@@ -1,4 +1,5 @@
 # ElasticSearch Commandline Utility (ESCLU) Program
+![node badge](https://img.shields.io/node/v/commander)
 
 Interact with ElasticSearch database from your terminal.
 
