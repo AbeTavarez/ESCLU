@@ -1,4 +1,4 @@
-# ElasticSearch Commandline Utility (ESLCU) Program
+# ElasticSearch Commandline Utility (ESCLU) Program
 
 Interact with ElasticSearch database from your terminal.
 
@@ -19,11 +19,12 @@ We take advantage of NodeJS core streams and Piping functionalitiesto communicat
 ### Dependencies
 
 - Commander
-- Request / Axios\*
+- Request
 
 ### Installing
 
-- In the root directory 'ESLCU' run:
+- Clone repo
+- In the root directory 'ESCLU' run:
 
 ```
 npm install
@@ -31,7 +32,7 @@ npm install
 
 ### Executing program
 
-- eslcu has an executable file, run :
+- ESCLU has an executable file, run the command below from the root directory:
 
 ```
 ./esclu

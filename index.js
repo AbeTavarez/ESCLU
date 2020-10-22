@@ -1,6 +1,5 @@
 'use strict';
 const fs = require('fs');
-const axios = require('axios');
 const request = require('request');
 const program = require('commander');
 const pkg = require('./package.json');
