@@ -1,7 +1,7 @@
 # ElasticSearch Commandline Utility (ESCLU) Program
 ![node badge](https://img.shields.io/node/v/commander)
 ![number of commits badge](https://img.shields.io/github/commit-activity/y/abetavarez/esclu)
-![file size badge]https://img.shields.io/github/languages/code-size/abetavarez/esclur)
+![file size badge](https://img.shields.io/github/languages/code-size/abetavarez/esclur)
 ![number of contributors badge](https://img.shields.io/github/contributors/abetavarez/esclu)
 
 
