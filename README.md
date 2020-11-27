@@ -13,6 +13,8 @@ We take advantage of NodeJS core streams and Piping functionalitiesto communicat
 
 ### Prerequisites
 
+The following must be installed in your computer:
+
 - Java
 - Java Development Kit (JDK)
 
