@@ -47,6 +47,8 @@ npm install
 
 - ESCLU has an executable file, run the command below from the root directory:
 
+* The Elastic Search Server must be runinng in another tab or terminal
+
 ```
 ./esclu
 ```
