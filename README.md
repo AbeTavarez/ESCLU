@@ -45,9 +45,11 @@ npm install
 
 ### Executing program
 
-- ESCLU has an executable file, run the command below from the root directory:
+- The Elastic Search Server must be runinng in another tab or terminal
 
-* The Elastic Search Server must be runinng in another tab or terminal
+[You can download it here](https://www.elastic.co/downloads/past-releases/elasticsearch-5-2-2)
+
+- ESCLU has an executable file, run the command below from the root directory:
 
 ```
 ./esclu
