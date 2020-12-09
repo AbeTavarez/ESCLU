@@ -84,13 +84,13 @@ For HELP use:
 
 ```
     url [path]            generates the URL for the options and path (default is /).
-    list-indices|li       get a list of indices in current cluster
+    list-indices|li       get a list of indices in current cluster.
     get [path]            perform an HTTP GET request for path (default is /).
     create-index          perform an HTTP PUT to Create a new Index.
     bulk <file>           read and perform bulk options from the specified file.
     put <file>            read and perform options for single document from the specified file.
     delete-index [path]   perform an HTTP DELETE request for path.
-    query|q [queries...]  perform a query
+    query | q [queries...]  perform a query.
 ```
 
 - If you encounter any problems or issues, please submit an issue ticket or pull request.
