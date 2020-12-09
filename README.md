@@ -1,4 +1,4 @@
-# ElasticSearch Commandline Utility (ESCLU) Program
+# ElasticSearch Commandline Utility (ESCLU) ~ CLI Program
 
 ![node badge](https://img.shields.io/node/v/commander)
 ![number of commits badge](https://img.shields.io/github/commit-activity/y/abetavarez/esclu)
@@ -12,7 +12,7 @@ Interact with ElasticSearch database from your terminal.
 ElasticSearch is a schema free, RESTful, NoSQL database that store and indexes JSON documents over HTTP.
 The ESLU program allows you to perform advanced query commands and other useful actions like importing documents in bulk right from your terminal.
 
-We take advantage of NodeJS core streams and Piping functionalitiesto communicate to with remote services over HTTP.
+_We take advantage of NodeJS core streams and piping functionalities to communicate with remote services over HTTP._
 
 ## Getting Started
 
@@ -23,11 +23,15 @@ The following must be installed in your computer:
 - Java
 - Java Development Kit (JDK)
 
-Check using;
+Check using:
 
 ```
 java --version
 ```
+
+- The Elastic Search Server must be runinng in another tab or terminal.
+
+- [Download Elastic Search here](https://www.elastic.co/downloads/past-releases/elasticsearch-5-2-2)
 
 ### Dependencies
 
@@ -36,7 +40,7 @@ java --version
 
 ### Installing
 
-- Clone repo
+- Fork repo to contribuate or clone it.
 - In the root directory 'ESCLU' run:
 
 ```
@@ -45,17 +49,17 @@ npm install
 
 ### Executing program
 
-- The Elastic Search Server must be runinng in another tab or terminal
-
-- [Download Elastic Search here](https://www.elastic.co/downloads/past-releases/elasticsearch-5-2-2)
-
 - ESCLU has an executable file, run the command below from the root directory:
+
+**The Elastic Search Server must be runinng in another tab or terminal.**
 
 ```
 ./esclu
 ```
 
-## Help
+## Executing commands:
+
+### Help
 
 For HELP use:
 
@@ -63,7 +67,7 @@ For HELP use:
 ./esclu -h
 ```
 
-## Options:
+### Options:
 
 ```
     -h, --help             output usage information
@@ -76,7 +80,7 @@ For HELP use:
     -f, --filter <filter>  source filter for query results
 ```
 
-## Commands:
+## #Commands:
 
 ```
     url [path]            generates the URL for the options and path (default is /).
@@ -96,10 +100,14 @@ For HELP use:
 Abraham Tavarez  
 [@AbrahamETavarez](https://www.linkedin.com/in/abrahametavarez/)
 
+## Contributors
+
+- Fork repo to start contribuating.
+
 ## Version History
 
 - 0.1
-  - Initial Release
+  - Development/Initial Release
 
 ## License
 

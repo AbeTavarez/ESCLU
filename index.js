@@ -33,9 +33,9 @@ program
   .version(pkg.version)
   .description(pkg.description)
   .usage('[options] <command> [...]')
-  .option('-o --host <hostname>', 'hostname[localhost]', 'localhost')
+  .option('-o, --host <hostname>', 'hostname[localhost]', 'localhost')
   .option('-p, --port <number>', 'port number [9200]', '9200')
-  .option('-j , --json', 'format outputas JSON')
+  .option('-j, --json', 'format outputas JSON')
   .option('-i, --index <name>', 'which index to use')
   .option('-t, --type <type>', 'default type for bulk operations')
 
